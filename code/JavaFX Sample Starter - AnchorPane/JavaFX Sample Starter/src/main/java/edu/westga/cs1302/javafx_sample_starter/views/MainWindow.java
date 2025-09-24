@@ -5,6 +5,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import edu.westga.cs1302.javafx_sample_starter.model.Task;
 import javafx.event.ActionEvent;
 
 /**
@@ -15,6 +16,7 @@ import javafx.event.ActionEvent;
  */
 public class MainWindow {
   
+  // Connects the UI components in the FXML file to fields in this class
   @FXML
   private TextArea descriptionTextArea;
 
@@ -22,13 +24,20 @@ public class MainWindow {
   private TextField nameTextField;
 
   @FXML
-  private ComboBox<?> priorityComboBox;
+  private ComboBox<String> priorityComboBox;
 
   @FXML
-  private ListView<?> taskListView;
+  private ListView<Task> taskListView;
 
   @FXML
   void addTaskButton(ActionEvent event) {
+    String taskName = this.nameTextField.getText();// get the name from the text field
+    String taskDescription = this.descriptionTextArea.getText();// get the description from the text area
+    String taskPriority = this.priorityComboBox.getValue();// get the priority from the combo box
+    
+    Task task = new Task(taskName, taskDescription, taskPriority);// create a new task object using the name, description, and priority from the user input
+    
+    this.taskListView.getItems().add(task);
 
   }
     

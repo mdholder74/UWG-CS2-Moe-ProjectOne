@@ -6,7 +6,7 @@ package edu.westga.cs1302.javafx_sample_starter.model;
  * @version Fall 2025
  */
 
-public class Data {
+public class Task {
   
   private final String name;
   
@@ -22,7 +22,7 @@ public class Data {
  * @param priority
  */
   
-  public Data(String name, String description, String priority) {
+  public Task(String name, String description, String priority) {
     if (name == null || name.isEmpty()) {
       throw new IllegalArgumentException("name must not be null or empty.");
     }
