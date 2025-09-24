@@ -28,7 +28,20 @@ public class MainWindow {
 
   @FXML
   private ListView<Task> taskListView;
-
+  
+  @FXML
+  private TextArea selectedTaskTextArea;
+  
+  @FXML
+  private TextField selectedPriorityTextField;
+  
+  /**
+   * This method is called when the user clicks the "Add Task" button.
+   * It creates a new Task object using the information entered by the user
+   * and adds it to the ListView.
+   * 
+   * @param event the ActionEvent that triggered this method
+   */
   @FXML
   void addTaskButton(ActionEvent event) {
     String taskName = this.nameTextField.getText();// get the name from the text field
@@ -44,7 +57,18 @@ public class MainWindow {
     /**
      * Perform any needed initialization of UI components and underlying objects.
      */
+  // This method is automatically called after all @FXML UI components are loaded and injected.
     public void initialize() {
+      this.priorityComboBox.getItems().addAll("Low", "Medium", "High");// fills the combo box with priority options the user can select from
+      
+      this.taskListView.getSelectionModel().selectedItemProperty().addListener((observable, oldTask, newTask) -> {// adds a listener to the ListView that listens for changes in the selected item
+        if (newTask != null) {
+          this.selectedTaskTextArea.setText(newTask.getDescription() );
+          this.selectedPriorityTextField.setText(newTask.getPriority());
+        } else {
+          this.selectedTaskTextArea.clear();
+        }
+      });      
     	
-    }
+    } 
 }
