@@ -80,5 +80,12 @@ public class Task {
   public String toString() {
     return this.name;
   }
+  
+  public void setDescription(String description) {
+    if (description == null || description.isEmpty()) {
+        throw new IllegalArgumentException("description must not be null or empty.");
+    }
+        this.description = description;
+    }
 
 }

@@ -53,11 +53,26 @@ public class MainWindow {
     this.taskListView.getItems().add(task);
 
   }
+  
+  @FXML
+  void updateDescriptionButton(ActionEvent event) {
+    
+    Task selectedTask = this.taskListView.getSelectionModel().getSelectedItem();// gets the currently selected task from the ListView
+    String updatedDescription = this.selectedTaskTextArea.getText();// gets the updated description from the TextArea
+
+    if (selectedTask == null) {
+        throw new IllegalArgumentException("Invalid: No task selected");
+    }
+
+    selectedTask.setDescription(updatedDescription);// updates the description of the selected task with the new description entered by the user
+    this.taskListView.refresh();
+
+  }
     
     /**
      * Perform any needed initialization of UI components and underlying objects.
      */
-  // This method is automatically called after all @FXML UI components are loaded and injected.
+  // This method is automatically called after all @FXML UI components are loaded.
     public void initialize() {
       this.priorityComboBox.getItems().addAll("Low", "Medium", "High");// fills the combo box with priority options the user can select from
       
@@ -67,6 +82,7 @@ public class MainWindow {
           this.selectedPriorityTextField.setText(newTask.getPriority());
         } else {
           this.selectedTaskTextArea.clear();
+          this.selectedPriorityTextField.clear();
         }
       });      
     	
