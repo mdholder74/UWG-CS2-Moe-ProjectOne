@@ -6,6 +6,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+
 import edu.westga.cs1302.javafx_sample_starter.model.Task;
 import javafx.event.ActionEvent;
 
@@ -61,6 +63,9 @@ public class MainWindow {
     Task task = new Task(taskName, taskDescription, taskPriority);// create a new task object using the name, description, and priority from the user input
     
     this.taskListView.getItems().add(task);
+    this.nameTextField.clear();
+    this.descriptionTextArea.clear();
+    this.priorityComboBox.getSelectionModel().clearSelection();
 
   }
   
@@ -118,23 +123,27 @@ public class MainWindow {
     this.highCountLabel.setText("High: " + highCount);
 
   }
+  
+  @FXML
+  void taskSelection(MouseEvent event) {
+    Task selectedTask = this.taskListView.getSelectionModel().getSelectedItem();
+    
+    if (selectedTask != null) {
+      this.selectedTaskTextArea.setText(selectedTask.getDescription());
+      this.selectedPriorityTextField.setText(selectedTask.getPriority());
+    } else {
+      this.selectedTaskTextArea.clear();
+      this.selectedPriorityTextField.clear();
+    }
+
+  }
     
     /**
      * Perform any needed initialization of UI components and underlying objects.
      */
   // This method is automatically called after all @FXML UI components are loaded.
     public void initialize() {
-      this.priorityComboBox.getItems().addAll("Low", "Medium", "High");// fills the combo box with priority options the user can select from
-      
-      this.taskListView.getSelectionModel().selectedItemProperty().addListener((observable, oldTask, newTask) -> {// adds a listener to the ListView that listens for changes in the selected item
-        if (newTask != null) {
-          this.selectedTaskTextArea.setText(newTask.getDescription() );
-          this.selectedPriorityTextField.setText(newTask.getPriority());
-        } else {
-          this.selectedTaskTextArea.clear();
-          this.selectedPriorityTextField.clear();
-        }
-      });      
+      this.priorityComboBox.getItems().addAll("Low", "Medium", "High");// fills the combo box with priority options the user can select from     
     	
     } 
 }

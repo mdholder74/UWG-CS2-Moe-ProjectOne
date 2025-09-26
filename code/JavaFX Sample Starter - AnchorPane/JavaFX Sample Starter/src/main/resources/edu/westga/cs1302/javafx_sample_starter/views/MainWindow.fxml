@@ -53,7 +53,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <ListView fx:id="taskListView" prefHeight="182.0" prefWidth="237.0" />
+            <ListView fx:id="taskListView" onMouseClicked="#taskSelection" prefHeight="182.0" prefWidth="237.0" />
             <Button mnemonicParsing="false" onAction="#removeTaskButton" text="Remove Task">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
@@ -61,7 +61,34 @@
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin></Button>
-            <Label text="Priority Count Summary">
+            <Label text="Task Priority">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextField fx:id="selectedPriorityTextField" editable="false" promptText="Display priority" />
+            <Label text="Task Description">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextArea fx:id="selectedTaskTextArea" prefHeight="114.0" prefWidth="250.0" promptText="Display/Edit descripiton" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <Label layoutX="105.0" layoutY="32.0" text="Add Task">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="389.0" layoutY="32.0" text="Task Information">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <VBox layoutX="666.0" layoutY="100.0" prefHeight="507.0" prefWidth="255.0" spacing="15.0">
+         <children>
+            <Label text="Total Priority Count">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -81,44 +108,15 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <Label layoutX="105.0" layoutY="32.0" text="Add Task">
+      <Label layoutX="746.0" layoutY="32.0" text="Priority Details">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="389.0" layoutY="32.0" text="Task Management">
+      <Button layoutX="400.0" layoutY="612.0" mnemonicParsing="false" onAction="#updateDescriptionButton" text="Update Description">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold Italic" size="12.0" />
          </font>
-      </Label>
-      <VBox layoutX="663.0" layoutY="100.0" prefHeight="507.0" prefWidth="255.0" spacing="15.0">
-         <children>
-            <Label text="Task Priority">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Label>
-            <TextField fx:id="selectedPriorityTextField" editable="false" promptText="Display priority" />
-            <Label text="Task Description">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Label>
-            <TextArea fx:id="selectedTaskTextArea" prefHeight="114.0" prefWidth="250.0" promptText="Display/Edit descripiton" />
-            <Button mnemonicParsing="false" onAction="#updateDescriptionButton" text="Update Description">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="70.0" />
-               </VBox.margin></Button>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </VBox>
-      <Label layoutX="746.0" layoutY="32.0" text="Edit Details">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
+      </Button>
    </children>
 </AnchorPane>
