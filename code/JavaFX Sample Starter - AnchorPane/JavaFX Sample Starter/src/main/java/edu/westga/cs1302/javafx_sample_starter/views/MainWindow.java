@@ -77,7 +77,7 @@ public class MainWindow {
       throw new IllegalArgumentException("Invalid: No task selected");
   }
 
-    this.taskListView.getItems().remove(selectedTask);
+    this.taskListView.getItems().remove(selectedTask);// removes the selected task from the ListView
 
   }
     
