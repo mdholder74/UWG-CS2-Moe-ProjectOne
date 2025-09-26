@@ -9,39 +9,116 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.javafx_sample_starter.views.MainWindow">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.javafx_sample_starter.views.MainWindow">
    <children>
-      <VBox layoutX="14.0" layoutY="47.0" prefHeight="516.0" prefWidth="308.0" spacing="10.0">
+      <VBox layoutX="14.0" layoutY="89.0" prefHeight="516.0" prefWidth="255.0" spacing="15.0">
          <children>
-            <Label text="Name">
+            <Label text="Task Name">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
-            <TextField fx:id="nameTextField" />
-            <Label text="Priority" />
-            <ComboBox fx:id="priorityComboBox" prefWidth="150.0" />
-            <Label text="Description" />
-            <TextArea fx:id="descriptionTextArea" prefHeight="60.0" prefWidth="290.0" />
-            <Button mnemonicParsing="false" onAction="#addTaskButton" text="Add Task">
+            <TextField fx:id="nameTextField" promptText="Enter task name" />
+            <Label text="Priority">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <ComboBox fx:id="priorityComboBox" prefHeight="25.0" prefWidth="236.0" promptText="Select Priority Status" />
+            <Label text="Description">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextArea fx:id="descriptionTextArea" prefHeight="114.0" prefWidth="250.0" promptText="Enter description" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addTaskButton" text="Add Task" textAlignment="JUSTIFY">
                <VBox.margin>
-                  <Insets left="100.0" top="50.0" />
+                  <Insets left="70.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
             </Button>
          </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
       </VBox>
-      <VBox layoutX="370.0" layoutY="47.0" prefHeight="516.0" prefWidth="286.0" spacing="10.0">
+      <VBox layoutX="335.0" layoutY="96.0" prefHeight="516.0" prefWidth="255.0" spacing="15.0">
          <children>
-            <Label text="Select a Task" />
+            <Label text="Listed Tasks">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <ListView fx:id="taskListView" prefHeight="182.0" prefWidth="237.0" />
-            <Button mnemonicParsing="false" onAction="#removeTaskButton" text="Remove Task" />
-            <Label text="Task Priority" />
-            <TextField fx:id="selectedPriorityTextField" editable="false" />
-            <Label text="Task Description" />
-            <TextArea fx:id="selectedTaskTextArea" prefHeight="114.0" prefWidth="250.0" />
-            <Button mnemonicParsing="false" onAction="#updateDescriptionButton" text="Update Description" />
+            <Button mnemonicParsing="false" onAction="#removeTaskButton" text="Remove Task">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="70.0" />
+               </VBox.margin></Button>
+            <Label text="Priority Count Summary">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="highCountLabel" text="High: 0" />
+            <Label fx:id="mediumCountLabel" text="Medium: 0" />
+            <Label fx:id="lowCountLabel" text="Low: 0" />
+            <Button mnemonicParsing="false" onAction="#priorityCountsButton" text="View Priority Counts">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="70.0" />
+               </VBox.margin></Button>
          </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
       </VBox>
+      <Label layoutX="105.0" layoutY="32.0" text="Add Task">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="389.0" layoutY="32.0" text="Task Management">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <VBox layoutX="663.0" layoutY="100.0" prefHeight="507.0" prefWidth="255.0" spacing="15.0">
+         <children>
+            <Label text="Task Priority">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextField fx:id="selectedPriorityTextField" editable="false" promptText="Display priority" />
+            <Label text="Task Description">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextArea fx:id="selectedTaskTextArea" prefHeight="114.0" prefWidth="250.0" promptText="Display/Edit descripiton" />
+            <Button mnemonicParsing="false" onAction="#updateDescriptionButton" text="Update Description">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="70.0" />
+               </VBox.margin></Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <Label layoutX="746.0" layoutY="32.0" text="Edit Details">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

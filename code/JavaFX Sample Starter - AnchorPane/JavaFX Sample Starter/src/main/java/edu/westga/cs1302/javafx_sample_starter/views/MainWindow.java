@@ -1,6 +1,7 @@
 package edu.westga.cs1302.javafx_sample_starter.views;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -19,6 +20,15 @@ public class MainWindow {
   // Connects the UI components in the FXML file to fields in this class
   @FXML
   private TextArea descriptionTextArea;
+  
+  @FXML
+  private Label highCountLabel;
+
+  @FXML
+  private Label lowCountLabel;
+
+  @FXML
+  private Label mediumCountLabel;
 
   @FXML
   private TextField nameTextField;
@@ -78,6 +88,34 @@ public class MainWindow {
   }
 
     this.taskListView.getItems().remove(selectedTask);// removes the selected task from the ListView
+
+  }
+  
+  @FXML
+  void priorityCountsButton(ActionEvent event) {
+    int lowCount = 0;
+    int mediumCount = 0;
+    int highCount = 0;
+
+
+    for (Task task : this.taskListView.getItems()) {
+      switch (task.getPriority()) {
+      case "Low":
+          lowCount++;
+          break;
+      case "Medium":
+          mediumCount++;
+          break;
+      case "High":
+          highCount++;
+          break;
+          
+      }
+    }
+    
+    this.lowCountLabel.setText("Low: " + lowCount);
+    this.mediumCountLabel.setText("Medium: " + mediumCount);
+    this.highCountLabel.setText("High: " + highCount);
 
   }
     
