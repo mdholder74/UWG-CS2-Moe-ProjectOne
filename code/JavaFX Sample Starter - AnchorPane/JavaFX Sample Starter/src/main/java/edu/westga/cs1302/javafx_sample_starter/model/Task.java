@@ -2,10 +2,10 @@ package edu.westga.cs1302.javafx_sample_starter.model;
 
 /** Stores information for creating a task.
  * 
+ * 
  * @author Moe Holder
  * @version Fall 2025
  */
-
 public class Task {
   
   private final String name;
@@ -14,14 +14,16 @@ public class Task {
   
   private final String priority;
   
-/** Create a new task with the provided name, description, and priority.
- * @precondition name != null && description != null && priority != null
- * @postcondition getName() == name && getDescription() == description && getPriority() == priority
- * @param name
- * @param description
- * @param priority
- */
-  
+  /** Create a new task with the name, description, and priority.
+   * 
+   * @precondition name != null && !name.isEmpty() && description != null && !description.isEmpty() &&
+   *               priority != null && !priority.is Empty() 
+   * @postcondition getName() == name && getDescription() == description && getPriority() == priority
+   * 
+   * @param name the name of the task
+   * @param description the description of the task
+   * @param priority the priority of the task
+   */
   public Task(String name, String description, String priority) {
     if (name == null || name.isEmpty()) {
       throw new IllegalArgumentException("name must not be null or empty.");
@@ -81,6 +83,13 @@ public class Task {
     return this.name;
   }
   
+  /** Set the description of the task.
+   * 
+   * @precondition description != null && !description.isEmpty()
+   * @postcondition getDescription() == description
+   * 
+   * @param description the new description of the task
+   */
   public void setDescription(String description) {
     if (description == null || description.isEmpty()) {
         throw new IllegalArgumentException("description must not be null or empty.");

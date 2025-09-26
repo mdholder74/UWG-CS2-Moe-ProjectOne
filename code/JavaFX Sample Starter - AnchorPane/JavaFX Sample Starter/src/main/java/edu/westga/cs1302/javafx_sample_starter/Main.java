@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Entry point for the program
+ * Entry point for the program.
  *
  * @author CS 1302
  * @version Fall 2025
@@ -24,7 +24,7 @@ public class Main extends Application {
    * @precondition none
    * @postcondition none
    *
-   * @throws IOException
+   * @throws IOException if the resource cannot be loaded
    */
   @Override
   public void start(Stage primaryStage) throws IOException {
