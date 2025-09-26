@@ -68,6 +68,18 @@ public class MainWindow {
     this.taskListView.refresh();
 
   }
+  
+  @FXML
+  void removeTaskButton(ActionEvent event) {
+    Task selectedTask = this.taskListView.getSelectionModel().getSelectedItem();
+    
+    if (selectedTask == null) {
+      throw new IllegalArgumentException("Invalid: No task selected");
+  }
+
+    this.taskListView.getItems().remove(selectedTask);
+
+  }
     
     /**
      * Perform any needed initialization of UI components and underlying objects.
