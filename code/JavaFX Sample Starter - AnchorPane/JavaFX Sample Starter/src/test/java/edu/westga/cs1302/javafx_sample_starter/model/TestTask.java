@@ -78,12 +78,51 @@ class TestTask {
   
   @Test
   void testToString() {
-    fail("Not yet implemented");
-  }
+    // Arrange
+    String taskName = "Complete Lab";
+    Task task = new Task(taskName, "Finish the lab assignment.", "Medium");
+    
+    // Act
+    String taskString = task.toString();
+    
+    // Assert
+    assertEquals(taskName, taskString, "toString should return the task name.");
+    
+    }
 
   @Test
-  void testSetDescription() {
-    fail("Not yet implemented");
+  void testSetDescriptionValidInput() {
+    // Arrange
+    Task task = new Task("Complete Project", "Finish the JavaFX project by 9/29/25.", "High");
+    String newDescription = "Finish the JavaFX project by 10/1/25.";
+    
+    // Act
+    task.setDescription(newDescription);
+    
+    // Assert
+    assertEquals(newDescription, task.getDescription(), "Task description should be updated to the new description.");
+  }
+  
+  @Test
+  void testSetDescriptionNullThrowsException() {
+    // Arrange
+    Task task = new Task("Complete Project", "Finish the JavaFX project by 9/29/25.", "High");
+    
+    // Act & Assert
+    assertThrows(IllegalArgumentException.class, () -> {
+      task.setDescription(null);
+    });
+  }
+  
+  @Test
+  void testSetDescriptionEmptyThrowsException() {
+    // Arrange
+    Task task = new Task("Complete Project", "Finish the JavaFX project by 9/29/25.", "High");
+    
+    // Act & Assert
+    assertThrows(IllegalArgumentException.class, () -> {
+      task.setDescription("");
+    });
   }
 
 }
