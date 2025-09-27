@@ -1,0 +1,162 @@
+commit d0b4c4255dd4060b439fba44db9f166c5510ccde
+Author: Mahogany (Moe) Holder <149602452+mdholder74@users.noreply.github.com>
+Date:   Tue Sep 23 12:06:02 2025 -0400
+
+    Initial commit
+
+commit b27e894177c312aed9effba19240935b00f374a2
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Wed Sep 24 05:06:21 2025 -0400
+
+     UI for Adding Tasks
+    
+    1) Added text field for task name input with associated MainWindow field
+    2) Added text area for task description input with associated MainWindow field
+    3) Added combo box for task priority selection with associated MainWindow field
+    4) Added submit button for new task creation with associated event handler method
+    5) Added list view for task display and selection with associated MainWindow field
+    
+    Updated MainWindow.fxml and MainWindow class to centralize all task-related UI controls in a single view following MVC pattern.
+    This setsup the foundation for the tracker and creates chohesive UI layer.
+
+commit d3d54f476527fda4aa700c01c985743e996f0547
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Wed Sep 24 06:51:47 2025 -0400
+
+    Business Logic for Storing a Task
+    >
+    > 1) Create a Data class to to store information for a single task
+    > 2) Createed a constructor with three parameter (name, description, priority)
+    > 3) Implemented getter methods for all fields (getName, getDescription, getPriority)
+    > 4) Added toString method that returns task name for UI display compatibility
+    > 5) Made name and priority fields immutable using final keyword
+    >
+    > Design pattern features a data model with encapsulation and some immutable fields to provide access but prevent modification
+    This class enables spearation of concerns
+
+commit cc92aad0e3ad68026822f5e395c60d4785123dcd
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Wed Sep 24 07:09:28 2025 -0400
+
+    Business Logic for Storing a Task Con...
+    
+    6) Added input validation for name, description and priority in the Data constructor through exception throwing
+
+commit c8e869dcf277e900d385b3eb1c244efcab1d2162
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Wed Sep 24 08:36:41 2025 -0400
+
+     Connect UI to Business Logic for Adding Task
+    
+    1) Refactor the name for the class changed it from Data to Task
+    2
+    2) Implemented addTaskButton method in MainWindow class
+    3) Gather data from the user through the text field, text area and combo box
+    4) Created a Task object using the the user UI field values
+    5) Add new Task objects to the taskListView
+    
+    Created data flow between the MainWindow class logic and the UI view using MVC pattern
+    This ensures separation of concerns, UI event handling and data model operations.
+
+commit a94837b43549475cc5c6a93b5f5e7d00fbbd907c
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Wed Sep 24 10:22:22 2025 -0400
+
+     Displaying Selected Task
+    
+    1) Added selectedTaskTextArea field for displaying selected task description to user
+    2) Added selectedPriorityField for displaying selected task priority to user
+    3) Added read-only to selectedTaskTextArea and selectedPriorityField
+    4) Added listeners to listen for changes for selectedTaskTextArea and selectedPriorityField to update display field when task selected
+    
+    Used the initialize method for setup data which allow for data setup after the UI components are loaded.
+    This ensure the application responds in realtime for the user.
+
+commit cc8ddbbe4d8375cae7b6eb0b9b2718e3a191a240
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Wed Sep 24 14:03:35 2025 -0400
+
+     Updating Descripton of Task in the List
+    
+    1) Create a setter method for description and added validation
+    2) Made selected task description textarea editable in UI
+    3) Added a button to update the description and added the logic to update the description with exception throwing
+    
+    This pattern ensure separation of concerns. This allows the user to be able to select a task description, make edits and save the changes.
+
+commit e6020568b7b23b49e46788d6418e8a2afbf66564
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Fri Sep 26 09:36:43 2025 -0400
+
+    test
+
+commit faddcd092f1d15c7b99c13cf05fda498590fafde
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Fri Sep 26 09:44:19 2025 -0400
+
+     Removing Task from the List
+    
+    1) Added a remove task button to the fxml
+    2) Implemented the remove task button logic along with error handling
+    
+    This ensures a user can select a task from teh list and remove it by clickign the button.
+
+commit e1c2e3cbae5891ae3010105af7aa0cd2505a55a7
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Fri Sep 26 12:10:04 2025 -0400
+
+     Counting Number of Tasks For Each Priority
+    
+    1) Added three labels to display task counts by priority (Low, Medium, High)
+    2) Added a view priority counts button to the UI
+    3) Implemented the view priority counts button
+    4) Used a switch statement to handle counting logic
+    
+    This ensures users are able to view task counts across priority levels by the view priority button.
+
+commit e4077e652229a37722c83e15fd7e31295493fe47
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Fri Sep 26 12:41:35 2025 -0400
+
+    refactor: Replace ListView listener with JavaFX event handler
+    
+    1) Added onMouseClicked to ListView
+    2) Implemented the method on the onMouseClicked by displaying the task priority and description
+    3) Clear fields after submission
+    4) Updated and improve the layout design of the UI
+    
+    This follows the design instructions and uses the standard JavaFX event handler provided for use. The updated design provides a better user experience.
+
+commit 5e696b5b9f0e86f3e416cba6e22ae31a2246cd91
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Fri Sep 26 14:42:21 2025 -0400
+
+    Fix Checkstyle errors
+    
+    1) Remove trailing comments
+    2) Added JavaDoc comments
+    
+    This ensure the documentation for the program is clear and easy to maintain.
+
+commit d36c82b8e1af89a0738a3044655262ca82b093e4
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Sat Sep 27 09:34:07 2025 -0400
+
+     Added unit test for the Task constructor
+    
+    1) Added test to create a valid task with valid fields
+    2) Added test for invalid inputs testing null/empty fields
+    
+    This ensures the Task constructor logic is correct and produces the expected outcome.
+
+commit 88e26c21b8561972827f58151257f5dee1dfb528
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Sat Sep 27 10:03:02 2025 -0400
+
+     Added unit test for setDescription and toString in the Task Class
+    
+    1) Test setDescription method with valid inputs
+    2) Test setDescription with invalid input null/empty
+    3) Test toString method to validate it converted into a string
+    
+    These unit test follow the AAA patter for clear test structure and readability. These test ensure they produce the expected results when called.
