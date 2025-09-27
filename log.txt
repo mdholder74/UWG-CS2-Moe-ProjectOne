@@ -160,3 +160,48 @@ Date:   Sat Sep 27 10:03:02 2025 -0400
     3) Test toString method to validate it converted into a string
     
     These unit test follow the AAA patter for clear test structure and readability. These test ensure they produce the expected results when called.
+
+commit f88b0557c0ccfb49fa6eb1284a211bc742d01aaf
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Sat Sep 27 10:29:56 2025 -0400
+
+    Add commit log in root folder
+    
+    Provides a record of commits throughout the project
+
+commit 9276d8d9de3264d00cb7289559febe8c5f45d4df
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Sat Sep 27 13:04:56 2025 -0400
+
+     UPDATE Counting Number of Tasks For Each Priority (B)
+    
+    1) Create a Task Utility class
+    2) Created a getPriorityCount static method to return the count for a task specific priority status
+    3) Added null/empty for parameter validation
+    
+    This ensure separation of concerns with logic being handled in a class and the UI focuses on displaying output.
+
+commit 17ef337e3087f13f84e609ec255932642ccbc6b2
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Sat Sep 27 14:01:38 2025 -0400
+
+    UPDATE Counting Number of Tasks For Each Priority (C)
+    
+    1) Refactor priorityCountsButton to use utility class
+    2) Converted ListView to an array
+    3) Used for each loop to loop through the combo box priority status, count the task list priorites and display them
+    4) Used the switch statment to label and set the updated priority status
+    
+    This ensures the UI focuses on displaying the information rather then handling the counting of priorities.
+
+commit b6c2970fce71c7d9361b0a9449a05baa2def447d
+Author: mdholder74 <mdholder74@gmail.com>
+Date:   Sat Sep 27 14:32:51 2025 -0400
+
+     Unit testing for TaskUtility Class
+    
+    1) Create TaskUtilityTest class in the model test package
+    2) Implemented exception tests for null and empty parameter validation
+    3) Implemented test to validate the priority counting
+    
+    This ensure the method works as expected and throws exception for invalid input.
