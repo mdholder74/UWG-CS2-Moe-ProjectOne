@@ -7,7 +7,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.util.ArrayList;
+
 import edu.westga.cs1302.MoeHolder1302Project1.model.Task;
+import edu.westga.cs1302.MoeHolder1302Project1.model.TaskUtility;
 import javafx.event.ActionEvent;
 
 /**
@@ -140,39 +144,36 @@ public class MainWindow {
   }
   
   /**
-   * This method is called when the user clicks the "Priority Counts" button.
+   * This method is called when the user clicks the "Priority Counts" button. It uses the 
+   * TaskUtility class to count the tasks in the ListView related to each priority level
    * 
    * @precondition none
-   * @postcondition the lowCountLabel, mediumCountLabel, and highCountLabel are updated
-   *               to show the number of tasks for each priority level
+   * @postcondition the lowCountLabel, mediumCountLabel, and highCountLabel are updated to show
+   *              the number of tasks in the ListView with each priority level
    * 
    * @param event the ActionEvent that triggered this method when the button is clicked
    */
   @FXML
-  void priorityCountsButton(ActionEvent event) {
-    int lowCount = 0;
-    int mediumCount = 0;
-    int highCount = 0;
-
-    for (Task task : this.taskListView.getItems()) {
-      switch (task.getPriority()) {
-      case "Low":
-          lowCount++;
+  void priorityCountsButton(ActionEvent event) { 
+    ArrayList<Task> tasksList = new ArrayList<>(this.taskListView.getItems());
+    
+    for (String priority : this.priorityComboBox.getItems()) {
+      int count = TaskUtility.getPriorityCount(tasksList, priority);
+      
+      switch (priority) {
+        case "Low":
+          this.lowCountLabel.setText("Low: " + count);
           break;
-      case "Medium":
-          mediumCount++;
+        case "Medium":
+          this.mediumCountLabel.setText("Medium: " + count);
           break;
-      case "High":
-          highCount++;
+        case "High":
+          this.highCountLabel.setText("High: " + count);
           break;
-          default: break;
-          
+        default:
+          break;
       }
     }
-    
-    this.lowCountLabel.setText("Low: " + lowCount);
-    this.mediumCountLabel.setText("Medium: " + mediumCount);
-    this.highCountLabel.setText("High: " + highCount);
 
   }
   
