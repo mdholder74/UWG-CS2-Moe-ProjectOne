@@ -21,11 +21,11 @@ public class TaskUtility {
    */
   public static int getPriorityCount(ArrayList<Task> tasksList, String priority) {
     if (tasksList == null) {
-      throw new IllegalArgumentException("tasks must not be null.");
+      throw new IllegalArgumentException("tasks cannot be null.");
     }
     
     if (priority == null || priority.isEmpty()) {
-      throw new IllegalArgumentException("priority must not be null or empty.");
+      throw new IllegalArgumentException("priority cannot be null or empty.");
     }
     
     int count = 0;
