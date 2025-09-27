@@ -1,4 +1,4 @@
-package edu.westga.cs1302.javafx_sample_starter.views;
+package edu.westga.cs1302.MoeHolder1302Project1.views;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -7,8 +7,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
-import edu.westga.cs1302.javafx_sample_starter.model.Task;
+import edu.westga.cs1302.MoeHolder1302Project1.model.Task;
 import javafx.event.ActionEvent;
 
 /**

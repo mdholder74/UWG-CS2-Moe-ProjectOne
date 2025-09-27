@@ -1,4 +1,4 @@
-package edu.westga.cs1302.javafx_sample_starter;
+package edu.westga.cs1302.MoeHolder1302Project1;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

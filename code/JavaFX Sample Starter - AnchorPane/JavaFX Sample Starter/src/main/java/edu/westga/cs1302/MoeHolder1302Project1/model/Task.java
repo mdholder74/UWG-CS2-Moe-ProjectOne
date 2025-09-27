@@ -1,4 +1,4 @@
-package edu.westga.cs1302.javafx_sample_starter.model;
+package edu.westga.cs1302.MoeHolder1302Project1.model;
 
 /** Stores information for creating a task.
  * 
